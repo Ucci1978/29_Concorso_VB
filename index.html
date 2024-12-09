@@ -9,35 +9,109 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Form per l'utente -->
+    <div id="user-form" style="margin: 20px;">
+        <label for="username">Nome utente:</label>
+        <input type="text" id="username" placeholder="Inserisci il nome utente" />
+        <button onclick="addUser()">Aggiungi utente</button>
+    </div>
+
     <h1 style="text-align: center; color: #007bff;">Quiz Interattivo</h1>
     <p style="text-align: center;">Seleziona un file di domande:</p>
-    <select id="file-selector">
-    <option value="01 Italiano-CIG.csv">Parte 1 - Italiano-CIG</option>
-    <option value="02 Italiano-CIOC.csv">Parte 2 - Italiano-CIOC</option>
-    <option value="03 Italiano-CIOD.csv">Parte 3 - Italiano-CIOD</option>
-    <option value="04 Italiano-CISB.csv">Parte 4 - Italiano-CISB</option>
-    <option value="05 Italiano-CISC.csv">Parte 5 - Italiano-CISC</option>
-    <option value="06 CrimOr-TSCR.csv">Parte 6 - CrimOr-TSCR</option>
-    <option value="07 Codice Penale-GDPD.csv">Parte 7 - Codice Penale-GDPD</option>
-    <option value="08 Codice  Proc Penale-GDPP.csv">Parte 8 - Codice  Proc Penale-GDPP</option>
-    <option value="09 Diritto Tributario-GDTT.csv">Parte 9 - Diritto Tributario-GDTT</option>
-    <option value="10 Ragioneria-GRAR.csv">Parte 10 - Ragioneria-GRAR</option>
-    <option value="11 Accise-TSAH.csv">Parte 11 - Accise-TSAH</option>
-    <option value="12 Riciclaggio-TSCL.csv">Parte 12 - Riciclaggio-TSCL</option>
-    <option value="13 Stupe-TSCM.csv">Parte 13 - Stupe-TSCM</option>
-    <option value="14 Dogane-TSCV.csv">Parte 14 - Dogane-TSCV</option>
-    <option value="15 Diritto UE-TSDG.csv">Parte 15 - Diritto UE-TSDG</option>
-    <option value="16 Reati Fiscali-TSIB.csv">Parte 16 - Reati Fiscali-TSIB</option>
-    <option value="17 Verifiche-TSID.csv">Parte 17 - Verifiche-TSID</option>
-    <option value="18 Lavoro nero-TSIF.csv">Parte 18 - Lavoro nero-TSIF</option>
-    <option value="19 Monopoli-TSSF.csv">Parte 19 - Monopoli-TSSF</option>
-    <option value="20 SicPro-TSUI.csv">Parte 20 - SicPro-TSUI</option>
-    <option value="21 Diritto autore-TSUJ.csv">Parte 21 - Diritto autore-TSUJ</option>
-    <option value="22 RdC-TSUK.csv">Parte 22 - RdC-TSUK</option>
-    <option value="23 Altro.csv">Parte 23 - Altro</option>
 
-</select>
-<button id="load-selected-file">Carica Quiz</button>
-<div id="quiz-container"></div>
+    <!-- Selettore dei file -->
+    <div style="text-align: center; margin-bottom: 20px;">
+        <select id="file-selector">
+            <option value="01 Italiano-CIG.csv">Parte 1 - Italiano-CIG</option>
+            <option value="02 Italiano-CIOC.csv">Parte 2 - Italiano-CIOC</option>
+            <option value="03 Italiano-CIOD.csv">Parte 3 - Italiano-CIOD</option>
+            <option value="04 Italiano-CISB.csv">Parte 4 - Italiano-CISB</option>
+            <option value="05 Italiano-CISC.csv">Parte 5 - Italiano-CISC</option>
+            <option value="06 CrimOr-TSCR.csv">Parte 6 - CrimOr-TSCR</option>
+            <option value="07 Codice Penale-GDPD.csv">Parte 7 - Codice Penale-GDPD</option>
+            <option value="08 Codice Proc Penale-GDPP.csv">Parte 8 - Codice Proc Penale-GDPP</option>
+            <option value="09 Diritto Tributario-GDTT.csv">Parte 9 - Diritto Tributario-GDTT</option>
+            <option value="10 Ragioneria-GRAR.csv">Parte 10 - Ragioneria-GRAR</option>
+            <option value="11 Accise-TSAH.csv">Parte 11 - Accise-TSAH</option>
+            <option value="12 Riciclaggio-TSCL.csv">Parte 12 - Riciclaggio-TSCL</option>
+            <option value="13 Stupe-TSCM.csv">Parte 13 - Stupe-TSCM</option>
+            <option value="14 Dogane-TSCV.csv">Parte 14 - Dogane-TSCV</option>
+            <option value="15 Diritto UE-TSDG.csv">Parte 15 - Diritto UE-TSDG</option>
+            <option value="16 Reati Fiscali-TSIB.csv">Parte 16 - Reati Fiscali-TSIB</option>
+            <option value="17 Verifiche-TSID.csv">Parte 17 - Verifiche-TSID</option>
+            <option value="18 Lavoro nero-TSIF.csv">Parte 18 - Lavoro nero-TSIF</option>
+            <option value="19 Monopoli-TSSF.csv">Parte 19 - Monopoli-TSSF</option>
+            <option value="20 SicPro-TSUI.csv">Parte 20 - SicPro-TSUI</option>
+            <option value="21 Diritto autore-TSUJ.csv">Parte 21 - Diritto autore-TSUJ</option>
+            <option value="22 RdC-TSUK.csv">Parte 22 - RdC-TSUK</option>
+            <option value="23 Altro.csv">Parte 23 - Altro</option>
+        </select>
+        <button id="load-selected-file">Carica Quiz</button>
+    </div>
+
+    <!-- Contenitore del quiz -->
+    <div id="quiz-container" style="margin: 20px;"></div>
+
+    <!-- Timer -->
+    <div id="timer" style="text-align: center; font-size: 20px; margin: 20px;">Tempo rimasto: 60s</div>
+
+    <!-- Statistiche -->
+    <div id="stats" style="text-align: center; margin: 20px;">
+        Domande risposte: 0, Corrette: 0, Sbagliate: 0
+    </div>
+
+    <script>
+        // Variabili globali
+        let users = [];
+        let timer = 60; // Tempo in secondi
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        let totalQuestions = 0;
+
+        // Aggiungi un utente
+        function addUser() {
+            const username = document.getElementById('username').value.trim();
+            if (username) {
+                users.push(username);
+                alert(`Utente aggiunto: ${username}`);
+                document.getElementById('username').value = ''; // Resetta il campo input
+                console.log('Lista utenti:', users);
+            } else {
+                alert('Inserisci un nome utente valido!');
+            }
+        }
+
+        // Avvia il timer
+        function startTimer() {
+            const timerElement = document.getElementById("timer");
+            const interval = setInterval(() => {
+                timer--;
+                timerElement.innerText = `Tempo rimasto: ${timer}s`;
+                if (timer <= 0) {
+                    clearInterval(interval); // Ferma il timer
+                    alert("Tempo scaduto!");
+                    showResults(); // Mostra il riepilogo
+                }
+            }, 1000); // Esegui ogni secondo
+        }
+
+        // Aggiorna i contatori
+        function updateCounters(isCorrect) {
+            totalQuestions++;
+            if (isCorrect) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+            document.getElementById("stats").innerText =
+                `Domande risposte: ${totalQuestions}, Corrette: ${correctAnswers}, Sbagliate: ${incorrectAnswers}`;
+        }
+
+        // Mostra i risultati alla fine
+        function showResults() {
+            alert(`Hai risposto a ${totalQuestions} domande.\nCorrette: ${correctAnswers}\nSbagliate: ${incorrectAnswers}`);
+            console.log("Risultati finali:", { correctAnswers, incorrectAnswers, totalQuestions });
+        }
+    </script>
 </body>
 </html>
