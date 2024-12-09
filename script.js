@@ -8,6 +8,10 @@ const users = []; // Array per gestire gli utenti
 
 // Aggiungi un nuovo utente o aggiorna un utente esistente
 function addUser(username) {
+    if (!username) {
+        console.error("Nome utente non valido");
+        return;
+    }
     const existingUser = users.find(user => user.name === username);
     if (!existingUser) {
         // Se l'utente non esiste, lo aggiungiamo
@@ -107,7 +111,9 @@ function checkAnswer(questionIndex, selectedValue, qDiv) {
 
     updateCounters(isCorrect); // Aggiorna i contatori
     const username = document.getElementById("username").value; // Recupera l'utente corrente
-    updateUser(username, isCorrect); // Aggiorna i dati utente
+    if (username) {
+        updateUser(username, isCorrect); // Aggiorna i dati utente solo se il nome utente è valido
+    }
 
     // Evidenzia le risposte corrette e sbagliate
     const options = qDiv.querySelectorAll('label.option');
