@@ -93,15 +93,16 @@ label.option[style="color: red;"] {
 }
 #timer-container {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    font-size: 30px;
-    font-family: 'Courier New', monospace;
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    top: 20px;  /* Posizione 20px dal top della pagina */
+    right: 20px; /* Posizione 20px dalla destra della pagina */
+    font-family: 'Courier New', Courier, monospace; /* Cambia il font */
+    font-size: 24px; /* Imposta la dimensione del font */
+    font-weight: bold; /* Imposta il testo in grassetto */
+    color: #007bff; /* Colore blu per il timer */
+    background-color: rgba(0, 123, 255, 0.2); /* Sfondo trasparente con un po' di colore */
+    padding: 10px; /* Distanza tra il testo e i bordi del contenitore */
+    border-radius: 5px; /* Rende gli angoli del contenitore arrotondati */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Aggiungi una leggera ombra */
 }
 
 #timer {
