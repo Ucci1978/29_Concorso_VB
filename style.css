@@ -91,3 +91,20 @@ label.option[style="color: red;"] {
 #upload-csv:hover {
     background-color: #0056b3;
 }
+#timer-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 30px;
+    font-family: 'Courier New', monospace;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#timer {
+    display: inline-block;
+    letter-spacing: 2px;
+}

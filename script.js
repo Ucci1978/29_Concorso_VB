@@ -81,7 +81,7 @@ function generateQuiz() {
     questions.forEach((question, index) => {
         const qDiv = document.createElement('div');
         qDiv.classList.add('question-container');
-        qDiv.innerHTML = `
+        qDiv.innerHTML = ` 
             <h3>Domanda ${index + 1}: ${question[0]}</h3>
             <ul>
                 ${question.slice(1, 5).map((opt, i) => ` 
@@ -145,7 +145,12 @@ function startTimer() {
     const timerElement = document.getElementById("timer");
     const interval = setInterval(() => {
         timer--;
-        timerElement.innerText = `Tempo rimasto: ${timer}s`;
+        const minutes = Math.floor(timer / 60); // Calcola i minuti
+        const seconds = timer % 60; // Calcola i secondi
+
+        // Mostra il timer in formato mm:ss
+        timerElement.innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
         if (timer <= 0) {
             clearInterval(interval); // Ferma il timer
             alert("Tempo scaduto!");

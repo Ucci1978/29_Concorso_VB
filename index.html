@@ -53,7 +53,9 @@
     <div id="quiz-container" style="margin: 20px;"></div>
 
     <!-- Timer -->
-    <div id="timer" style="text-align: center; font-size: 20px; margin: 20px;">Tempo rimasto: 60s</div>
+    <div id="timer-container">
+        <span id="timer">00:00</span>
+    </div>
 
     <!-- Statistiche -->
     <div id="stats" style="text-align: center; margin: 20px;">
@@ -75,7 +77,9 @@
             }
         }
 
-        // Avvia il timer
+        // Timer
+        let timer = 60; // 60 secondi per il timer
+
         function startTimer() {
             const timerElement = document.getElementById("timer");
             const interval = setInterval(() => {
