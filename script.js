@@ -1,5 +1,5 @@
-let questions = [];
-let timer = 60; // Tempo in secondi
+let questions = []; 
+let countdownTimer = 60; // Tempo in secondi (cambiato il nome della variabile)
 let correctAnswers = 0; // Numero di risposte corrette
 let incorrectAnswers = 0; // Numero di risposte sbagliate
 let totalQuestions = 0; // Numero totale di domande
@@ -144,14 +144,14 @@ function addToReviewList(question) {
 function startTimer() {
     const timerElement = document.getElementById("timer");
     const interval = setInterval(() => {
-        timer--;
-        const minutes = Math.floor(timer / 60); // Calcola i minuti
-        const seconds = timer % 60; // Calcola i secondi
+        countdownTimer--; // Riduce il timer
+        const minutes = Math.floor(countdownTimer / 60); // Calcola i minuti
+        const seconds = countdownTimer % 60; // Calcola i secondi
 
         // Mostra il timer in formato mm:ss
         timerElement.innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
-        if (timer <= 0) {
+        if (countdownTimer <= 0) {
             clearInterval(interval); // Ferma il timer
             alert("Tempo scaduto!");
             showResults(); // Mostra il riepilogo
