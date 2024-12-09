@@ -1,4 +1,4 @@
-let questions = []; 
+let questions = [];
 let countdownTimer = 60; // Tempo in secondi (cambiato il nome della variabile)
 let correctAnswers = 0; // Numero di risposte corrette
 let incorrectAnswers = 0; // Numero di risposte sbagliate
@@ -46,8 +46,14 @@ function updateUser(username, isCorrect) {
 // Carica il file CSV e genera il quiz
 document.getElementById('load-selected-file').addEventListener('click', function () {
     const selectedFile = document.getElementById('file-selector').value;
-
     console.log("Caricamento del file:", selectedFile); // Debug
+
+    // Verifica se il percorso è corretto
+    if (!selectedFile) {
+        console.error("Nessun file selezionato.");
+        return;
+    }
+
     fetch(selectedFile)
         .then(response => {
             if (!response.ok) {
@@ -70,7 +76,9 @@ document.getElementById('load-selected-file').addEventListener('click', function
                 }
             });
         })
-        .catch(err => console.error("Errore durante il caricamento del file:", err));
+        .catch(err => {
+            console.error("Errore durante il caricamento del file:", err);
+        });
 });
 
 // Genera il quiz con le domande caricate
