@@ -49,9 +49,10 @@ document.getElementById('load-selected-file').addEventListener('click', function
     const selectedFile = fileInput.files[0]; // Prendi il primo file selezionato
 
     if (!selectedFile) {
-        console.error("Nessun file selezionato");
-        return;
-    }
+    console.error("Nessun file selezionato.");
+    alert("Per favore, seleziona un file CSV.");
+    return; // Interrompe l'esecuzione se non c'è nessun file
+}
 
     console.log("Caricamento del file:", selectedFile.name); // Debug
 
