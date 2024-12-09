@@ -91,18 +91,21 @@ label.option[style="color: red;"] {
 #upload-csv:hover {
     background-color: #0056b3;
 }
+/* Posizionamento e stile del Timer */
 #timer-container {
-    position: fixed;
-    top: 20px;  /* Posizione 20px dal top della pagina */
-    right: 20px; /* Posizione 20px dalla destra della pagina */
-    font-family: 'Courier New', Courier, monospace; /* Cambia il font */
-    font-size: 24px; /* Imposta la dimensione del font */
-    font-weight: bold; /* Imposta il testo in grassetto */
-    color: #007bff; /* Colore blu per il timer */
-    background-color: rgba(0, 123, 255, 0.2); /* Sfondo trasparente con un po' di colore */
-    padding: 10px; /* Distanza tra il testo e i bordi del contenitore */
-    border-radius: 5px; /* Rende gli angoli del contenitore arrotondati */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Aggiungi una leggera ombra */
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    color: #007bff !important;
+    background-color: rgba(0, 123, 255, 0.2) !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+    z-index: 9999 !important;
 }
 
 #timer {
