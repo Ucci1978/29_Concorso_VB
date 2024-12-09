@@ -1,11 +1,10 @@
-// Carica il file CSV e genera il quiz
 document.getElementById('load-selected-file').addEventListener('click', function () {
     const fileInput = document.getElementById('file-selector');
     const selectedFile = fileInput.files[0]; // Prendi il primo file selezionato
 
     if (!selectedFile) {
         console.error("Nessun file selezionato");
-        return;
+        return;  // Esce dalla funzione se non è stato selezionato nessun file
     }
 
     console.log("Caricamento del file:", selectedFile.name); // Debug
