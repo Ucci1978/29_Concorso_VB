@@ -61,18 +61,27 @@ document.getElementById('load-selected-file').addEventListener('click', function
     reader.onload = function (event) {
         const csvText = event.target.result; // Contenuto del file
         Papa.parse(csvText, {
-            header: false,
-            skipEmptyLines: true,
-            complete: function (results) {
-                questions = results.data;
-                console.log("Domande caricate:", questions); // Debug
-                generateQuiz();
-                startTimer(); // Avvia il timer una volta caricato il quiz
-            },
-            error: function (err) {
-                console.error("Errore nella conversione del CSV:", err);
-            }
-        });
+    		header: false,
+		skipEmptyLines: true,
+    		complete: function (results) {
+        		questions = results.data;
+
+        // Controllo: Verifica se ci sono domande
+        if (!questions || questions.length === 0) {
+            console.error("Il file CSV non contiene dati validi.");
+            alert("Errore: Il file CSV non contiene domande!");
+            return; // Interrompe l'esecuzione se non ci sono dati
+        }
+
+        console.log("Domande caricate:", questions); // Debug
+        generateQuiz();
+        startTimer(); // Avvia il timer una volta caricato il quiz
+    },
+    error: function (err) {
+        console.error("Errore nella conversione del CSV:", err);
+    }
+});
+
     };
 
     reader.onerror = function (err) {
